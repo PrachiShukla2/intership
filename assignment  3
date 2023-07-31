@@ -1,0 +1,90 @@
+//1.
+// Create an Array of Salaries, Now do the Sum of Salaries who is greater than 10000.
+//Hint : reduce function
+
+
+// Sample array of salaries
+const salaries = [15000, 12000, 8000, 11000, 9000, 13000, 9500, 10500, 14000, 7500];
+
+// Declarative function to calculate the sum of salaries that are greater than 10000
+const sumSalariesGreaterThan10000 = (salaries) => {
+  const filteredSalaries = salaries.filter(salary => salary > 10000);
+  const totalSum = filteredSalaries.reduce((acc, salary) => acc + salary, 0);
+  return totalSum;
+};
+
+// Calculate the sum of salaries greater than 10000
+const totalSum = sumSalariesGreaterThan10000(salaries);
+console.log("Total sum of salaries greater than 10000:", totalSum);
+
+//Q2
+// Get the Max Salary from the  above  Array
+//Hint : reduce function
+
+// Sample array of salaries
+const salarie = [15000, 12000, 8000, 11000, 9000, 13000, 9500, 10500, 14000, 7500];
+
+// Function to find the maximum salary using reduce
+const findMaxSalary = (salaries) => {
+  return salaries.reduce((max, currentSalary) => {
+    return currentSalary > max ? currentSalary : max;
+  }, salaries[0]);
+};
+
+// Find the maximum salary
+const maxSalary = findMaxSalary(salaries);
+console.log("Maximum salary:", maxSalary);
+
+
+//  Q3
+//Count Those Salaries whose > 10000, note : don't use filter.
+//Hint : reduce function
+// Sample array of salaries
+const salarie2 = [15000, 12000, 8000, 11000, 9000, 13000, 9500, 10500, 14000, 7500];
+
+// Function to count salaries greater than 10000 using reduce only
+const countSalariesGreaterThan10000 = (salaries) => {
+  return salaries.reduce((count, currentSalary) => {
+    return currentSalary > 10000 ? count + 1 : count;
+  }, 0);
+};
+
+// Count salaries greater than 10000
+const count = countSalariesGreaterThan10000(salaries);
+console.log("Number of salaries greater than 10000:", count);
+
+
+// Maintain an Array of Employees. (Array of Objects), Now Sort the Employee by Name and Salary.
+
+
+const employees = [{ name: 'PRACHI', salary: 60000 },
+{ name: 'RUHI', salary: 69000 },
+{ name: 'ANJALI', salary: 50000 },
+{ name: 'ANU', salary: 58000 },];
+
+employees.sort((a, b) => a.name.localeCompare(b.name));
+
+console.log("Employees sorted by name: ");
+console.log(employees);
+
+employees.sort((a, b) => a.salary - b.salary);
+
+console.log("Employees sorted by salary: ");
+console.log(employees);
+
+//In Employee Salaries add 10% Tax in Each Employee Salary and Store in a new Array, So don't modify the Orginal Array.
+//Hint : filter, map
+
+const newSalaries = employees.map(employee => ({
+  name: employee.name,
+  salary: employee.salary * 1.1,
+
+}));
+
+console.log("Original empolyee salaries: ");
+console.log(employees);
+
+console.log("Employee salaries with added 10% Tax");
+console.log(newSalaries);
+
+
